@@ -1,9 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCharacterSheetEditor.Ui", "PokemonCharacterSheetEditor.Ui\PokemonCharacterSheetEditor.Ui.csproj", "{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCharacterSheetEditor.Lib", "PokemonCharacterSheetEditor.Lib\PokemonCharacterSheetEditor.Lib.csproj", "{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCharacterSheetEditor.DbEditor", "PokemonCharacterSheetEditor.DbEditor\PokemonCharacterSheetEditor.DbEditor.csproj", "{67AA7929-9100-4D30-B74A-9E40EDA141B5}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AA7929-9100-4D30-B74A-9E40EDA141B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AA7929-9100-4D30-B74A-9E40EDA141B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AA7929-9100-4D30-B74A-9E40EDA141B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AA7929-9100-4D30-B74A-9E40EDA141B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
