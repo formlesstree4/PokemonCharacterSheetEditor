@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Database\SQLite\PtaDb.db" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
