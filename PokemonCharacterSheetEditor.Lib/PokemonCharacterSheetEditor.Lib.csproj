@@ -96,6 +96,8 @@
     <Compile Include="Database\IQueryGrid.cs" />
     <Compile Include="Database\IQueryRunner.cs" />
     <Compile Include="Database\IQueryRunnerFactory.cs" />
+    <Compile Include="Providers\PokemonProvider.cs" />
+    <Compile Include="Providers\TypeProvider.cs" />
     <Compile Include="Database\QueryGrid.cs" />
     <Compile Include="Database\QueryRunner.cs" />
     <Compile Include="Database\SQLite\SqliteQueryRunnerFactory.cs" />
