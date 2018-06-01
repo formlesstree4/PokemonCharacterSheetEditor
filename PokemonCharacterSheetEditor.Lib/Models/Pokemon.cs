@@ -41,6 +41,8 @@ namespace PokemonCharacterSheetEditor.Lib.Models
         public long CaptureRate { get; set; }
         public long ExperienceDrop { get; set; }
         public string LevelUpScript { get; set; }
+        public byte[] Sprite { get; set; }
+        public byte[] Picture { get; set; }
 
         public Type TypeOne { get; set; }
         public Type TypeTwo { get; set; }

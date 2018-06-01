@@ -285,9 +285,17 @@ namespace PokemonCharacterSheetEditor.Lib.Models
 
                 entity.Property(e => e.Overland).HasDefaultValueSql("1");
 
+                entity.Property(e => e.Picture)
+                    .IsRequired()
+                    .HasDefaultValueSql("0");
+
                 entity.Property(e => e.Power).HasDefaultValueSql("1");
 
                 entity.Property(e => e.Sky).HasDefaultValueSql("1");
+
+                entity.Property(e => e.Sprite)
+                    .IsRequired()
+                    .HasDefaultValueSql("0");
 
                 entity.Property(e => e.Surface).HasDefaultValueSql("1");
 
