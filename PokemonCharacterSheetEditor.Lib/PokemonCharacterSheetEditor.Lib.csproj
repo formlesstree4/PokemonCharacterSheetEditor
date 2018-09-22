@@ -96,12 +96,26 @@
     <Compile Include="Database\IQueryGrid.cs" />
     <Compile Include="Database\IQueryRunner.cs" />
     <Compile Include="Database\IQueryRunnerFactory.cs" />
+    <Compile Include="Providers\AbilityProvider.cs" />
+    <Compile Include="Providers\BaseProvider.cs" />
+    <Compile Include="Providers\CapabilityProvider.cs" />
+    <Compile Include="Providers\ContestTypeProvider.cs" />
+    <Compile Include="Providers\FrequencyProvider.cs" />
+    <Compile Include="Providers\KeywordProvider.cs" />
+    <Compile Include="Providers\MoveListTypeProvider.cs" />
+    <Compile Include="Providers\MoveProvider.cs" />
+    <Compile Include="Providers\MoveStatProvider.cs" />
+    <Compile Include="Providers\PokemonAbilityProvider.cs" />
+    <Compile Include="Providers\PokemonCapabilityProvider.cs" />
+    <Compile Include="Providers\PokemonMoveProvider.cs" />
     <Compile Include="Providers\PokemonProvider.cs" />
-    <Compile Include="Providers\TypeProvider.cs" />
+    <Compile Include="Providers\TechnicalMedicineProvider.cs" />
+    <Compile Include="Providers\TypeEffectiveProvider.cs" />
     <Compile Include="Database\QueryGrid.cs" />
     <Compile Include="Database\QueryRunner.cs" />
     <Compile Include="Database\SQLite\SqliteQueryRunnerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\TypeProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

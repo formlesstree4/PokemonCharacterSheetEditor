@@ -1,28 +1,28 @@
 ﻿using PokemonCharacterSheetEditor.Lib.Database;
+using PokemonCharacterSheetEditor.Lib.Database.DTO;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PokemonCharacterSheetEditor.Lib.Providers
 {
-
-    /// <summary>
-    ///     Provides type mappings for Pokemon.
-    /// </summary>
-    public sealed class TypeProvider
+    public sealed class TypeProvider : BaseProvider<TypeDTO>
     {
+        private readonly Lazy<IEnumerable<TypeDTO>> _typeDTOs;
 
-        private readonly IDictionary<int, string> _mappings;
-
-
-        /// <summary>
-        ///     Creates a new instance of the <see cref="TypeProvider"/>
-        /// </summary>
-        /// <param name="query"><see cref="IQueryRunner"/></param>
-        public TypeProvider(IQueryRunner query)
+        public TypeProvider(IQueryRunner queryRunner) : base(queryRunner)
         {
-            _mappings = new Dictionary<int, string>();
+            _typeDTOs = new Lazy<IEnumerable<TypeDTO>>(() => queryRunner.Query<TypeDTO>("SELECT * FROM Type"));
         }
 
+        public override IEnumerable<TypeDTO> GetAll()
+        {
+            return _typeDTOs.Value;
+        }
 
+        public override TypeDTO GetByRowId(int id)
+        {
+            return _typeDTOs.Value.FirstOrDefault(c => c.TypeId == id);
+        }
     }
-
 }
