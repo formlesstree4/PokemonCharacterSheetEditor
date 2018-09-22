@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2B4B46C-EE22-4AB1-8250-F5DBFD29354B}</ProjectGuid>
+    <ProjectGuid>{6738C559-159A-44AD-878F-8B2C81DE7A5C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokemonCharacterSheetEditor.Lib</RootNamespace>
