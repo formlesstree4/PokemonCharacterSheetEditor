@@ -9,7 +9,7 @@ namespace PokemonCharacterSheetEditor.DbEditor
     public partial class MainWindow : Window
     {
 
-        
+        public ObservableCollection<Test> T { get; set; }
 
 
 
