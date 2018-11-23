@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCharacterSheetEditor.DbEditor", "PokemonCharacterSheetEditor.DbEditor\PokemonCharacterSheetEditor.DbEditor.csproj", "{15531D8F-E7CF-44A0-A7D6-917DB38D8B8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PtaSheet-Prism", "PtaSheet-Prism\PtaSheet-Prism.csproj", "{1F8D89CC-B925-4B9A-A995-B27D7BB1231B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonCharacterSheetEditor.Ui", "PokemonCharacterSheetEditor.Ui\PokemonCharacterSheetEditor.Ui.csproj", "{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PtaSheet-Provider", "PtaSheet-Provider\PtaSheet-Provider.csproj", "{B4417128-0297-4F47-8277-B756759FC975}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokemonCharacterSheetEditor.Lib", "PokemonCharacterSheetEditor.Lib\PokemonCharacterSheetEditor.Lib.csproj", "{6738C559-159A-44AD-878F-8B2C81DE7A5C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{FFB3A9C6-8037-418F-A343-69628A68B4DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Editor", "Editor", "{1C6A4FD2-D2BE-4005-8299-849D21287FB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Viewer", "Viewer", "{8926A4C7-0904-4BE0-804A-294FB1B484D0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toolkit", "Toolkit", "{04D7C233-3DFA-4B3D-B936-54A6D8A3F2DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,21 +21,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{15531D8F-E7CF-44A0-A7D6-917DB38D8B8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15531D8F-E7CF-44A0-A7D6-917DB38D8B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15531D8F-E7CF-44A0-A7D6-917DB38D8B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15531D8F-E7CF-44A0-A7D6-917DB38D8B8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3F93AE75-4F42-41E9-85AB-9A5B66E660E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6738C559-159A-44AD-878F-8B2C81DE7A5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6738C559-159A-44AD-878F-8B2C81DE7A5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6738C559-159A-44AD-878F-8B2C81DE7A5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6738C559-159A-44AD-878F-8B2C81DE7A5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8D89CC-B925-4B9A-A995-B27D7BB1231B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8D89CC-B925-4B9A-A995-B27D7BB1231B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8D89CC-B925-4B9A-A995-B27D7BB1231B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8D89CC-B925-4B9A-A995-B27D7BB1231B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4417128-0297-4F47-8277-B756759FC975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4417128-0297-4F47-8277-B756759FC975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4417128-0297-4F47-8277-B756759FC975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4417128-0297-4F47-8277-B756759FC975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C6A4FD2-D2BE-4005-8299-849D21287FB0} = {FFB3A9C6-8037-418F-A343-69628A68B4DF}
+		{8926A4C7-0904-4BE0-804A-294FB1B484D0} = {FFB3A9C6-8037-418F-A343-69628A68B4DF}
+		{04D7C233-3DFA-4B3D-B936-54A6D8A3F2DB} = {FFB3A9C6-8037-418F-A343-69628A68B4DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26A69E9F-926E-423C-A62F-599B683847D4}
