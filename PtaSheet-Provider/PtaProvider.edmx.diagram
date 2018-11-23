@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44e9b470bd66482884f60e4fbbf83db0" Name="Diagram1">
+        <EntityTypeShape EntityType="ptaModel.Ability" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Capability" Width="1.5" PointX="3.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.ContestType" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Frequency" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Keyword" Width="1.5" PointX="3.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Move" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.MoveListType" Width="1.5" PointX="6" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.MoveStat" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Pokemon" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.TechnicalMedicine" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.Type" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.TypeEffective" Width="1.5" PointX="3" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.PokemonAbility" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ptaModel.PokemonMove" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="ptaModel.FK_Ability_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_PokemonAbility_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Move_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Move_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Move_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Move_3_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_PokemonMove_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_TechnicalMedicine_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_PokemonMove_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Pokemon_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_Pokemon_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_PokemonAbility_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_PokemonMove_2_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_TypeEffective_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.FK_TypeEffective_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="ptaModel.PokemonCapabilities" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
