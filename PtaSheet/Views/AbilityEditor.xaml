@@ -89,7 +89,7 @@
             <TextBox
                 Grid.Column="1"
                 Grid.Row="0"
-                IsEnabled="{Binding SelectedCapability, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Activation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
@@ -99,11 +99,10 @@
                 HorizontalAlignment="Right"
                 Text="Effect: "
                 VerticalAlignment="Center" />
-
             <TextBox
                 Grid.Column="1"
                 Grid.Row="1"
-                IsEnabled="{Binding SelectedCapability, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Effect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
@@ -113,11 +112,10 @@
                 HorizontalAlignment="Right"
                 Text="Limit: "
                 VerticalAlignment="Center" />
-
             <TextBox
                 Grid.Column="1"
                 Grid.Row="2"
-                IsEnabled="{Binding SelectedCapability, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Limit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
@@ -127,13 +125,32 @@
                 HorizontalAlignment="Right"
                 Text="Name: "
                 VerticalAlignment="Center" />
-
             <TextBox
                 Grid.Column="1"
                 Grid.Row="3"
-                IsEnabled="{Binding SelectedCapability, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
+
+            <TextBlock
+                Grid.Column="0"
+                Grid.Row="4"
+                HorizontalAlignment="Right"
+                Text="Keyword: "
+                VerticalAlignment="Center" />
+            <ComboBox
+                Grid.Column="1"
+                Grid.Row="4"
+                IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding Keywords}"
+                SelectedItem="{Binding SelectedKeyword}"
+                VerticalAlignment="Center">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
 
         </Grid>

@@ -1,4 +1,5 @@
-﻿using Prism.Events;
+﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using PtaSheet.Infrastructure.Events;
@@ -12,6 +13,7 @@ namespace PtaSheet.ViewModels
     {
 
         private ObservableCollection<Model.Ability> _abilities;
+        private ReadOnlyObservableCollection<Model.Keyword> _keywords;
         private Model.Ability _selectedAbility;
         private Model.PtaConnection _connection;
         private readonly StatusEvent _statusEvent;
@@ -25,6 +27,13 @@ namespace PtaSheet.ViewModels
             get => _abilities;
             private set => SetProperty(ref _abilities, value);
         }
+        public ReadOnlyObservableCollection<Model.Keyword> Keywords
+        {
+            get => _keywords;
+            private set => SetProperty(ref _keywords, value);
+        }
+
+
         public Model.Ability SelectedAbility
         {
             get => _selectedAbility;
@@ -39,11 +48,12 @@ namespace PtaSheet.ViewModels
                 RaisePropertyChanged(nameof(Effect));
                 RaisePropertyChanged(nameof(Limit));
                 RaisePropertyChanged(nameof(Name));
+                RaisePropertyChanged(nameof(SelectedKeyword));
             }
         }
         public string Activation
         {
-            get => SelectedAbility.Activation;
+            get => SelectedAbility?.Activation ?? "";
             set
             {
                 SelectedAbility.Activation = value;
@@ -53,7 +63,7 @@ namespace PtaSheet.ViewModels
         }
         public string Effect
         {
-            get => SelectedAbility.Effect;
+            get => SelectedAbility?.Effect ?? "";
             set
             {
                 SelectedAbility.Effect = value;
@@ -63,7 +73,7 @@ namespace PtaSheet.ViewModels
         }
         public string Limit
         {
-            get => SelectedAbility.Limit;
+            get => SelectedAbility?.Limit ?? "";
             set
             {
                 SelectedAbility.Limit = value;
@@ -73,7 +83,7 @@ namespace PtaSheet.ViewModels
         }
         public string Name
         {
-            get => SelectedAbility.Name;
+            get => SelectedAbility?.Name ?? "";
             set
             {
                 SelectedAbility.Name = value;
@@ -81,9 +91,9 @@ namespace PtaSheet.ViewModels
                 RaisePropertyChanged(nameof(SelectedAbility));
             }
         }
-        public Model.Keyword Keyword
+        public Model.Keyword SelectedKeyword
         {
-            get => SelectedAbility.Keyword;
+            get => SelectedAbility?.Keyword;
             set
             {
                 SelectedAbility.Keyword = value;
@@ -133,6 +143,40 @@ namespace PtaSheet.ViewModels
         {
             _statusEvent = eventAggregator.GetEvent<StatusEvent>();
             _connection = connection;
+
+            Abilities = new ObservableCollection<Model.Ability>(connection.Ability);
+            Keywords = new ReadOnlyObservableCollection<Model.Keyword>(new ObservableCollection<Model.Keyword>(connection.Keyword));
+
+            AddCapabilityCommand = new DelegateCommand(() =>
+            {
+                var newModel = _connection.Ability.Create();
+                newModel.Name = "New Ability";
+                newModel.Activation = "Instant";
+                newModel.Effect = "None";
+                newModel.Keyword = Keywords[0];
+                newModel.Limit = "None";
+
+                _connection.Ability.Add(newModel);
+                Abilities.Add(newModel);
+                SelectedAbility = newModel;
+            });
+            RemoveCapabilityCommand = new DelegateCommand(() =>
+            {
+                ConfirmationRequest.Raise(new Confirmation
+                {
+                    Content = $"Are you sure you want to delete {SelectedAbility.Name}?",
+                    Title = "Confirm"
+                }, (confirmation) =>
+                {
+                    if (!confirmation.Confirmed)
+                    {
+                        return;
+                    }
+                    _connection.Ability.Remove(SelectedAbility);
+                    Abilities.Remove(SelectedAbility);
+                });
+            });
+
         }
 
         private void SaveAllChanges()
