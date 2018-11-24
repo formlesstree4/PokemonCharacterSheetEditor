@@ -37,10 +37,9 @@ namespace PtaSheet.ViewModels
 
 
 
-        public MainWindowViewModel() { }
+        public MainWindowViewModel() { WindowTitle = "PtaSheet"; }
         public MainWindowViewModel(IRegionManager regionManager, IEventAggregator eventAggregator) : this()
         {
-            WindowTitle = "PtaSheet";
             _statusEvent = eventAggregator.GetEvent<StatusEvent>();
             regionManager.RegisterViewWithRegion(Constants.StatusRegionName, typeof(StatusBar));
 
@@ -49,7 +48,8 @@ namespace PtaSheet.ViewModels
                 var region = regionManager.Regions[Constants.MainWindowRegionName];
                 _statusEvent.Publish("Loading PtaSheet Editor...");
                 regionManager.RequestNavigate(Constants.MainWindowRegionName, nameof(Editor));
-                WindowTitle = "PtaSheet Editor";
+                _statusEvent.Publish("Editor loaded!");
+                WindowTitle = "PtaSheet - Data Editor";
             });
 
             LoadPtaSheetCommand = new DelegateCommand(() =>
