@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A5BE3404-E13C-471C-9632-BED18B13E63E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PtaSheet</RootNamespace>
+    <AssemblyName>PtaSheet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Infrastructure\Events\StatusEvent.cs" />
+    <Compile Include="Model\Ability.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Capability.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ContestType.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Frequency.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Keyword.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Move.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MoveListType.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MoveStat.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pokemon.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PokemonAbility.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PokemonCapabilities.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PokemonMove.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PtaProvider.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PtaProvider.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PtaProvider.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PtaProvider.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PtaProvider.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TechnicalMedicine.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Type.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TypeEffective.cs">
+      <DependentUpon>PtaProvider.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\StatusBarViewModel.cs" />
+    <Compile Include="Views\StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\Editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Constants.cs" />
+    <Compile Include="ViewModels\EditorViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\Editor.xaml.cs">
+      <DependentUpon>Editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\StatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\PtaProvider.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PtaProvider.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\PtaProvider.edmx.diagram">
+      <DependentUpon>PtaProvider.edmx</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Model\PtaDb.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Unity" Version="7.1.0.431&#xD;" />
+    <PackageReference Include="System.Data.Sqlite">
+      <Version>1.0.109.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.Sqlite.Core">
+      <Version>1.0.109.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.Sqlite.EF6">
+      <Version>1.0.109</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.Sqlite.Linq">
+      <Version>1.0.109</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\PtaProvider.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PtaProvider.edmx</DependentUpon>
+      <LastGenOutput>PtaProvider.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PtaProvider.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PtaProvider.edmx</DependentUpon>
+      <LastGenOutput>PtaProvider.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

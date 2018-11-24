@@ -1,0 +1,1055 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PtaModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=&quot;C:\Users\asear\Documents\Visual Studio 2017\Projects\PokemonCharacterSheetEditor\PtaSheet\Model\PtaDb.db&quot;;to full path=False" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ability">
+          <Key>
+            <PropertyRef Name="AbilityId" />
+          </Key>
+          <Property Name="AbilityId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Activation" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Limit" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="KeywordId" Type="integer" />
+          <Property Name="Effect" Type="varchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="Capability">
+          <Key>
+            <PropertyRef Name="CapabilityId" />
+          </Key>
+          <Property Name="CapabilityId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContestType">
+          <Key>
+            <PropertyRef Name="ContestTypeId" />
+          </Key>
+          <Property Name="ContestTypeId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="FrequencyId" />
+          </Key>
+          <Property Name="FrequencyId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="KeywordId" />
+          </Key>
+          <Property Name="KeywordId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Move">
+          <Key>
+            <PropertyRef Name="MoveId" />
+          </Key>
+          <Property Name="MoveId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="TypeId" Type="integer" Nullable="false" />
+          <Property Name="Roll" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="FrequencyId" Type="integer" Nullable="false" />
+          <Property Name="AccuracyCheck" Type="varchar" MaxLength="2147483647" />
+          <Property Name="MoveStatId" Type="integer" Nullable="false" />
+          <Property Name="MoveRange" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Target" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Effect" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EffectScript" Type="varchar" MaxLength="2147483647" />
+          <Property Name="ContestTypeId" Type="integer" Nullable="false" />
+          <Property Name="ContestRoll" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="ContestKeyword" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoveListType">
+          <Key>
+            <PropertyRef Name="MoveListTypeId" />
+          </Key>
+          <Property Name="MoveListTypeId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MoveStat">
+          <Key>
+            <PropertyRef Name="MoveStatId" />
+          </Key>
+          <Property Name="MoveStatId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pokemon">
+          <Key>
+            <PropertyRef Name="PokemonId" />
+          </Key>
+          <Property Name="PokemonId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EntryId" Type="integer" Nullable="false" />
+          <Property Name="HP" Type="integer" Nullable="false" />
+          <Property Name="Attack" Type="integer" Nullable="false" />
+          <Property Name="Defense" Type="integer" Nullable="false" />
+          <Property Name="SpecialAttack" Type="integer" Nullable="false" />
+          <Property Name="SpecialDefense" Type="integer" Nullable="false" />
+          <Property Name="Speed" Type="integer" Nullable="false" />
+          <Property Name="TypeOneId" Type="integer" Nullable="false" />
+          <Property Name="TypeTwoId" Type="integer" Nullable="false" />
+          <Property Name="Height" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Weight" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="MaleChance" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="FemaleChance" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="AvgHatchRate" Type="integer" Nullable="false" />
+          <Property Name="Diets" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Habitats" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Burrow" Type="integer" Nullable="false" />
+          <Property Name="Intelligence" Type="integer" Nullable="false" />
+          <Property Name="Jump" Type="integer" Nullable="false" />
+          <Property Name="Overland" Type="integer" Nullable="false" />
+          <Property Name="Power" Type="integer" Nullable="false" />
+          <Property Name="Sky" Type="integer" Nullable="false" />
+          <Property Name="Surface" Type="integer" Nullable="false" />
+          <Property Name="Underwater" Type="integer" Nullable="false" />
+          <Property Name="CaptureRate" Type="integer" Nullable="false" />
+          <Property Name="ExperienceDrop" Type="integer" Nullable="false" />
+          <Property Name="LevelUpScript" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="PokemonAbility">
+          <Key>
+            <PropertyRef Name="PokemonAbilityId" />
+          </Key>
+          <Property Name="PokemonAbilityId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PokemonId" Type="integer" Nullable="false" />
+          <Property Name="AbilityId" Type="integer" Nullable="false" />
+          <Property Name="IsHighAbility" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PokemonCapabilities">
+          <Key>
+            <PropertyRef Name="PokemonCapabilityId" />
+          </Key>
+          <Property Name="PokemonCapabilityId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PokemonId" Type="integer" Nullable="false" />
+          <Property Name="CapabilityId" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PokemonMove">
+          <Key>
+            <PropertyRef Name="PokemonMoveId" />
+          </Key>
+          <Property Name="PokemonMoveId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PokemonId" Type="integer" Nullable="false" />
+          <Property Name="MoveId" Type="integer" Nullable="false" />
+          <Property Name="MoveListType" Type="integer" Nullable="false" />
+          <Property Name="Level" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechnicalMedicine">
+          <Key>
+            <PropertyRef Name="TmRowId" />
+          </Key>
+          <Property Name="TmRowId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PtaId" Type="varchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="MoveId" Type="integer" Nullable="false" />
+          <Property Name="Price" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeEffective">
+          <Key>
+            <PropertyRef Name="TypeEffectiveId" />
+          </Key>
+          <Property Name="TypeEffectiveId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttackingId" Type="integer" Nullable="false" />
+          <Property Name="DefendingId" Type="integer" Nullable="false" />
+          <Property Name="Modifier" Type="real" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ability_0_0">
+          <End Role="Keyword" Type="Self.Keyword" Multiplicity="0..1" />
+          <End Role="Ability" Type="Self.Ability" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Keyword">
+              <PropertyRef Name="KeywordId" />
+            </Principal>
+            <Dependent Role="Ability">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Move_0_0">
+          <End Role="ContestType" Type="Self.ContestType" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContestType">
+              <PropertyRef Name="ContestTypeId" />
+            </Principal>
+            <Dependent Role="Move">
+              <PropertyRef Name="ContestTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Move_1_0">
+          <End Role="MoveStat" Type="Self.MoveStat" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveStat">
+              <PropertyRef Name="MoveStatId" />
+            </Principal>
+            <Dependent Role="Move">
+              <PropertyRef Name="MoveStatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Move_2_0">
+          <End Role="Frequency" Type="Self.Frequency" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Frequency">
+              <PropertyRef Name="FrequencyId" />
+            </Principal>
+            <Dependent Role="Move">
+              <PropertyRef Name="FrequencyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Move_3_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Move">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pokemon_0_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="TypeTwoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pokemon_1_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="TypeOneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonAbility_0_0">
+          <End Role="Ability" Type="Self.Ability" Multiplicity="1" />
+          <End Role="PokemonAbility" Type="Self.PokemonAbility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ability">
+              <PropertyRef Name="AbilityId" />
+            </Principal>
+            <Dependent Role="PokemonAbility">
+              <PropertyRef Name="AbilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonAbility_1_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonAbility" Type="Self.PokemonAbility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="PokemonId" />
+            </Principal>
+            <Dependent Role="PokemonAbility">
+              <PropertyRef Name="PokemonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonCapabilities_0_0">
+          <End Role="Capability" Type="Self.Capability" Multiplicity="1" />
+          <End Role="PokemonCapabilities" Type="Self.PokemonCapabilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Capability">
+              <PropertyRef Name="CapabilityId" />
+            </Principal>
+            <Dependent Role="PokemonCapabilities">
+              <PropertyRef Name="CapabilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonCapabilities_1_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonCapabilities" Type="Self.PokemonCapabilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="PokemonId" />
+            </Principal>
+            <Dependent Role="PokemonCapabilities">
+              <PropertyRef Name="PokemonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonMove_0_0">
+          <End Role="MoveListType" Type="Self.MoveListType" Multiplicity="1" />
+          <End Role="PokemonMove" Type="Self.PokemonMove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MoveListType">
+              <PropertyRef Name="MoveListTypeId" />
+            </Principal>
+            <Dependent Role="PokemonMove">
+              <PropertyRef Name="MoveListType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PokemonMove_2_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonMove" Type="Self.PokemonMove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="PokemonId" />
+            </Principal>
+            <Dependent Role="PokemonMove">
+              <PropertyRef Name="PokemonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeEffective_0_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="TypeEffective" Type="Self.TypeEffective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="TypeEffective">
+              <PropertyRef Name="DefendingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeEffective_1_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="TypeEffective" Type="Self.TypeEffective" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="TypeEffective">
+              <PropertyRef Name="AttackingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PtaModelStoreContainer">
+          <EntitySet Name="Ability" EntityType="Self.Ability" store:Type="Tables" />
+          <EntitySet Name="Capability" EntityType="Self.Capability" store:Type="Tables" />
+          <EntitySet Name="ContestType" EntityType="Self.ContestType" store:Type="Tables" />
+          <EntitySet Name="Frequency" EntityType="Self.Frequency" store:Type="Tables" />
+          <EntitySet Name="Keyword" EntityType="Self.Keyword" store:Type="Tables" />
+          <EntitySet Name="Move" EntityType="Self.Move" store:Type="Tables" />
+          <EntitySet Name="MoveListType" EntityType="Self.MoveListType" store:Type="Tables" />
+          <EntitySet Name="MoveStat" EntityType="Self.MoveStat" store:Type="Tables" />
+          <EntitySet Name="Pokemon" EntityType="Self.Pokemon" store:Type="Tables" />
+          <EntitySet Name="PokemonAbility" EntityType="Self.PokemonAbility" store:Type="Tables" />
+          <EntitySet Name="PokemonCapabilities" EntityType="Self.PokemonCapabilities" store:Type="Tables" />
+          <EntitySet Name="PokemonMove" EntityType="Self.PokemonMove" store:Type="Tables" />
+          <EntitySet Name="TechnicalMedicine" EntityType="Self.TechnicalMedicine" store:Type="Tables" />
+          <EntitySet Name="Type" EntityType="Self.Type" store:Type="Tables" />
+          <EntitySet Name="TypeEffective" EntityType="Self.TypeEffective" store:Type="Tables" />
+          <AssociationSet Name="FK_Ability_0_0" Association="Self.FK_Ability_0_0">
+            <End Role="Keyword" EntitySet="Keyword" />
+            <End Role="Ability" EntitySet="Ability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_0_0" Association="Self.FK_Move_0_0">
+            <End Role="ContestType" EntitySet="ContestType" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_1_0" Association="Self.FK_Move_1_0">
+            <End Role="MoveStat" EntitySet="MoveStat" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_2_0" Association="Self.FK_Move_2_0">
+            <End Role="Frequency" EntitySet="Frequency" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_3_0" Association="Self.FK_Move_3_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pokemon_0_0" Association="Self.FK_Pokemon_0_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pokemon_1_0" Association="Self.FK_Pokemon_1_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonAbility_0_0" Association="Self.FK_PokemonAbility_0_0">
+            <End Role="Ability" EntitySet="Ability" />
+            <End Role="PokemonAbility" EntitySet="PokemonAbility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonAbility_1_0" Association="Self.FK_PokemonAbility_1_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonAbility" EntitySet="PokemonAbility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonCapabilities_0_0" Association="Self.FK_PokemonCapabilities_0_0">
+            <End Role="Capability" EntitySet="Capability" />
+            <End Role="PokemonCapabilities" EntitySet="PokemonCapabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonCapabilities_1_0" Association="Self.FK_PokemonCapabilities_1_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonCapabilities" EntitySet="PokemonCapabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonMove_0_0" Association="Self.FK_PokemonMove_0_0">
+            <End Role="MoveListType" EntitySet="MoveListType" />
+            <End Role="PokemonMove" EntitySet="PokemonMove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonMove_2_0" Association="Self.FK_PokemonMove_2_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonMove" EntitySet="PokemonMove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeEffective_0_0" Association="Self.FK_TypeEffective_0_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="TypeEffective" EntitySet="TypeEffective" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeEffective_1_0" Association="Self.FK_TypeEffective_1_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="TypeEffective" EntitySet="TypeEffective" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PtaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ability">
+          <Key>
+            <PropertyRef Name="AbilityId" />
+          </Key>
+          <Property Name="AbilityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Limit" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Effect" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Keyword" Relationship="Self.FK_Ability_0_0" FromRole="Ability" ToRole="Keyword" />
+          <NavigationProperty Name="PokemonAbility" Relationship="Self.FK_PokemonAbility_0_0" FromRole="Ability" ToRole="PokemonAbility" />
+        </EntityType>
+        <EntityType Name="Capability">
+          <Key>
+            <PropertyRef Name="CapabilityId" />
+          </Key>
+          <Property Name="CapabilityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PokemonCapabilities" Relationship="Self.FK_PokemonCapabilities_0_0" FromRole="Capability" ToRole="PokemonCapabilities" />
+        </EntityType>
+        <EntityType Name="ContestType">
+          <Key>
+            <PropertyRef Name="ContestTypeId" />
+          </Key>
+          <Property Name="ContestTypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Move" Relationship="Self.FK_Move_0_0" FromRole="ContestType" ToRole="Move" />
+        </EntityType>
+        <EntityType Name="Frequency">
+          <Key>
+            <PropertyRef Name="FrequencyId" />
+          </Key>
+          <Property Name="FrequencyId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Move" Relationship="Self.FK_Move_2_0" FromRole="Frequency" ToRole="Move" />
+        </EntityType>
+        <EntityType Name="Keyword">
+          <Key>
+            <PropertyRef Name="KeywordId" />
+          </Key>
+          <Property Name="KeywordId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ability" Relationship="Self.FK_Ability_0_0" FromRole="Keyword" ToRole="Ability" />
+        </EntityType>
+        <EntityType Name="Move">
+          <Key>
+            <PropertyRef Name="MoveId" />
+          </Key>
+          <Property Name="MoveId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Roll" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccuracyCheck" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="MoveRange" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Target" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Effect" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EffectScript" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" />
+          <Property Name="ContestRoll" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContestKeyword" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ContestType" Relationship="Self.FK_Move_0_0" FromRole="Move" ToRole="ContestType" />
+          <NavigationProperty Name="Frequency" Relationship="Self.FK_Move_2_0" FromRole="Move" ToRole="Frequency" />
+          <NavigationProperty Name="MoveStat" Relationship="Self.FK_Move_1_0" FromRole="Move" ToRole="MoveStat" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Move_3_0" FromRole="Move" ToRole="Type" />
+        </EntityType>
+        <EntityType Name="MoveListType">
+          <Key>
+            <PropertyRef Name="MoveListTypeId" />
+          </Key>
+          <Property Name="MoveListTypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PokemonMove" Relationship="Self.FK_PokemonMove_0_0" FromRole="MoveListType" ToRole="PokemonMove" />
+        </EntityType>
+        <EntityType Name="MoveStat">
+          <Key>
+            <PropertyRef Name="MoveStatId" />
+          </Key>
+          <Property Name="MoveStatId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Move" Relationship="Self.FK_Move_1_0" FromRole="MoveStat" ToRole="Move" />
+        </EntityType>
+        <EntityType Name="Pokemon">
+          <Key>
+            <PropertyRef Name="PokemonId" />
+          </Key>
+          <Property Name="PokemonId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EntryId" Type="Int64" Nullable="false" />
+          <Property Name="HP" Type="Int64" Nullable="false" />
+          <Property Name="Attack" Type="Int64" Nullable="false" />
+          <Property Name="Defense" Type="Int64" Nullable="false" />
+          <Property Name="SpecialAttack" Type="Int64" Nullable="false" />
+          <Property Name="SpecialDefense" Type="Int64" Nullable="false" />
+          <Property Name="Speed" Type="Int64" Nullable="false" />
+          <Property Name="Height" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="Weight" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="MaleChance" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="FemaleChance" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <Property Name="AvgHatchRate" Type="Int64" Nullable="false" />
+          <Property Name="Diets" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Habitats" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Burrow" Type="Int64" Nullable="false" />
+          <Property Name="Intelligence" Type="Int64" Nullable="false" />
+          <Property Name="Jump" Type="Int64" Nullable="false" />
+          <Property Name="Overland" Type="Int64" Nullable="false" />
+          <Property Name="Power" Type="Int64" Nullable="false" />
+          <Property Name="Sky" Type="Int64" Nullable="false" />
+          <Property Name="Surface" Type="Int64" Nullable="false" />
+          <Property Name="Underwater" Type="Int64" Nullable="false" />
+          <Property Name="CaptureRate" Type="Int64" Nullable="false" />
+          <Property Name="ExperienceDrop" Type="Int64" Nullable="false" />
+          <Property Name="LevelUpScript" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_Pokemon_0_0" FromRole="Pokemon" ToRole="Type" />
+          <NavigationProperty Name="Type1" Relationship="Self.FK_Pokemon_1_0" FromRole="Pokemon" ToRole="Type" />
+          <NavigationProperty Name="PokemonAbility" Relationship="Self.FK_PokemonAbility_1_0" FromRole="Pokemon" ToRole="PokemonAbility" />
+          <NavigationProperty Name="PokemonCapabilities" Relationship="Self.FK_PokemonCapabilities_1_0" FromRole="Pokemon" ToRole="PokemonCapabilities" />
+          <NavigationProperty Name="PokemonMove" Relationship="Self.FK_PokemonMove_2_0" FromRole="Pokemon" ToRole="PokemonMove" />
+        </EntityType>
+        <EntityType Name="PokemonAbility">
+          <Key>
+            <PropertyRef Name="PokemonAbilityId" />
+          </Key>
+          <Property Name="PokemonAbilityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsHighAbility" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ability" Relationship="Self.FK_PokemonAbility_0_0" FromRole="PokemonAbility" ToRole="Ability" />
+          <NavigationProperty Name="Pokemon" Relationship="Self.FK_PokemonAbility_1_0" FromRole="PokemonAbility" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="PokemonCapabilities">
+          <Key>
+            <PropertyRef Name="PokemonCapabilityId" />
+          </Key>
+          <Property Name="PokemonCapabilityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Capability" Relationship="Self.FK_PokemonCapabilities_0_0" FromRole="PokemonCapabilities" ToRole="Capability" />
+          <NavigationProperty Name="Pokemon" Relationship="Self.FK_PokemonCapabilities_1_0" FromRole="PokemonCapabilities" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="PokemonMove">
+          <Key>
+            <PropertyRef Name="PokemonMoveId" />
+          </Key>
+          <Property Name="PokemonMoveId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MoveId" Type="Int64" Nullable="false" />
+          <Property Name="Level" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="MoveListType" Relationship="Self.FK_PokemonMove_0_0" FromRole="PokemonMove" ToRole="MoveListType" />
+          <NavigationProperty Name="Pokemon" Relationship="Self.FK_PokemonMove_2_0" FromRole="PokemonMove" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="TechnicalMedicine">
+          <Key>
+            <PropertyRef Name="TmRowId" />
+          </Key>
+          <Property Name="TmRowId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PtaId" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MoveId" Type="Int64" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Move" Relationship="Self.FK_Move_3_0" FromRole="Type" ToRole="Move" />
+          <NavigationProperty Name="Pokemon" Relationship="Self.FK_Pokemon_0_0" FromRole="Type" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon1" Relationship="Self.FK_Pokemon_1_0" FromRole="Type" ToRole="Pokemon" />
+          <NavigationProperty Name="TypeEffective" Relationship="Self.FK_TypeEffective_0_0" FromRole="Type" ToRole="TypeEffective" />
+          <NavigationProperty Name="TypeEffective1" Relationship="Self.FK_TypeEffective_1_0" FromRole="Type" ToRole="TypeEffective" />
+        </EntityType>
+        <EntityType Name="TypeEffective">
+          <Key>
+            <PropertyRef Name="TypeEffectiveId" />
+          </Key>
+          <Property Name="TypeEffectiveId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modifier" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_TypeEffective_0_0" FromRole="TypeEffective" ToRole="Type" />
+          <NavigationProperty Name="Type1" Relationship="Self.FK_TypeEffective_1_0" FromRole="TypeEffective" ToRole="Type" />
+        </EntityType>
+        <Association Name="FK_Ability_0_0">
+          <End Role="Keyword" Type="Self.Keyword" Multiplicity="0..1" />
+          <End Role="Ability" Type="Self.Ability" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonAbility_0_0">
+          <End Role="Ability" Type="Self.Ability" Multiplicity="1" />
+          <End Role="PokemonAbility" Type="Self.PokemonAbility" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonCapabilities_0_0">
+          <End Role="Capability" Type="Self.Capability" Multiplicity="1" />
+          <End Role="PokemonCapabilities" Type="Self.PokemonCapabilities" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Move_0_0">
+          <End Role="ContestType" Type="Self.ContestType" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Move_2_0">
+          <End Role="Frequency" Type="Self.Frequency" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Move_1_0">
+          <End Role="MoveStat" Type="Self.MoveStat" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Move_3_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Move" Type="Self.Move" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonMove_0_0">
+          <End Role="MoveListType" Type="Self.MoveListType" Multiplicity="1" />
+          <End Role="PokemonMove" Type="Self.PokemonMove" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Pokemon_0_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Pokemon_1_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonAbility_1_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonAbility" Type="Self.PokemonAbility" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonCapabilities_1_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonCapabilities" Type="Self.PokemonCapabilities" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_PokemonMove_2_0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="PokemonMove" Type="Self.PokemonMove" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_TypeEffective_0_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="TypeEffective" Type="Self.TypeEffective" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_TypeEffective_1_0">
+          <End Role="Type" Type="Self.Type" Multiplicity="1" />
+          <End Role="TypeEffective" Type="Self.TypeEffective" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PtaConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ability" EntityType="Self.Ability" />
+          <EntitySet Name="Capability" EntityType="Self.Capability" />
+          <EntitySet Name="ContestType" EntityType="Self.ContestType" />
+          <EntitySet Name="Frequency" EntityType="Self.Frequency" />
+          <EntitySet Name="Keyword" EntityType="Self.Keyword" />
+          <EntitySet Name="Move" EntityType="Self.Move" />
+          <EntitySet Name="MoveListType" EntityType="Self.MoveListType" />
+          <EntitySet Name="MoveStat" EntityType="Self.MoveStat" />
+          <EntitySet Name="Pokemon" EntityType="Self.Pokemon" />
+          <EntitySet Name="PokemonAbility" EntityType="Self.PokemonAbility" />
+          <EntitySet Name="PokemonCapabilities" EntityType="Self.PokemonCapabilities" />
+          <EntitySet Name="PokemonMove" EntityType="Self.PokemonMove" />
+          <EntitySet Name="TechnicalMedicine" EntityType="Self.TechnicalMedicine" />
+          <EntitySet Name="Type" EntityType="Self.Type" />
+          <EntitySet Name="TypeEffective" EntityType="Self.TypeEffective" />
+          <AssociationSet Name="FK_Ability_0_0" Association="Self.FK_Ability_0_0">
+            <End Role="Keyword" EntitySet="Keyword" />
+            <End Role="Ability" EntitySet="Ability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonAbility_0_0" Association="Self.FK_PokemonAbility_0_0">
+            <End Role="Ability" EntitySet="Ability" />
+            <End Role="PokemonAbility" EntitySet="PokemonAbility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonCapabilities_0_0" Association="Self.FK_PokemonCapabilities_0_0">
+            <End Role="Capability" EntitySet="Capability" />
+            <End Role="PokemonCapabilities" EntitySet="PokemonCapabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_0_0" Association="Self.FK_Move_0_0">
+            <End Role="ContestType" EntitySet="ContestType" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_2_0" Association="Self.FK_Move_2_0">
+            <End Role="Frequency" EntitySet="Frequency" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_1_0" Association="Self.FK_Move_1_0">
+            <End Role="MoveStat" EntitySet="MoveStat" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Move_3_0" Association="Self.FK_Move_3_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Move" EntitySet="Move" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonMove_0_0" Association="Self.FK_PokemonMove_0_0">
+            <End Role="MoveListType" EntitySet="MoveListType" />
+            <End Role="PokemonMove" EntitySet="PokemonMove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pokemon_0_0" Association="Self.FK_Pokemon_0_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pokemon_1_0" Association="Self.FK_Pokemon_1_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonAbility_1_0" Association="Self.FK_PokemonAbility_1_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonAbility" EntitySet="PokemonAbility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonCapabilities_1_0" Association="Self.FK_PokemonCapabilities_1_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonCapabilities" EntitySet="PokemonCapabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PokemonMove_2_0" Association="Self.FK_PokemonMove_2_0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="PokemonMove" EntitySet="PokemonMove" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeEffective_0_0" Association="Self.FK_TypeEffective_0_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="TypeEffective" EntitySet="TypeEffective" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeEffective_1_0" Association="Self.FK_TypeEffective_1_0">
+            <End Role="Type" EntitySet="Type" />
+            <End Role="TypeEffective" EntitySet="TypeEffective" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PtaModelStoreContainer" CdmEntityContainer="PtaConnection">
+          <EntitySetMapping Name="Ability">
+            <EntityTypeMapping TypeName="PtaModel.Ability">
+              <MappingFragment StoreEntitySet="Ability">
+                <ScalarProperty Name="AbilityId" ColumnName="AbilityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Activation" ColumnName="Activation" />
+                <ScalarProperty Name="Limit" ColumnName="Limit" />
+                <ScalarProperty Name="Effect" ColumnName="Effect" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capability">
+            <EntityTypeMapping TypeName="PtaModel.Capability">
+              <MappingFragment StoreEntitySet="Capability">
+                <ScalarProperty Name="CapabilityId" ColumnName="CapabilityId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContestType">
+            <EntityTypeMapping TypeName="PtaModel.ContestType">
+              <MappingFragment StoreEntitySet="ContestType">
+                <ScalarProperty Name="ContestTypeId" ColumnName="ContestTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Frequency">
+            <EntityTypeMapping TypeName="PtaModel.Frequency">
+              <MappingFragment StoreEntitySet="Frequency">
+                <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Keyword">
+            <EntityTypeMapping TypeName="PtaModel.Keyword">
+              <MappingFragment StoreEntitySet="Keyword">
+                <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Move">
+            <EntityTypeMapping TypeName="PtaModel.Move">
+              <MappingFragment StoreEntitySet="Move">
+                <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Roll" ColumnName="Roll" />
+                <ScalarProperty Name="AccuracyCheck" ColumnName="AccuracyCheck" />
+                <ScalarProperty Name="MoveRange" ColumnName="MoveRange" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="Effect" ColumnName="Effect" />
+                <ScalarProperty Name="EffectScript" ColumnName="EffectScript" />
+                <ScalarProperty Name="ContestRoll" ColumnName="ContestRoll" />
+                <ScalarProperty Name="ContestKeyword" ColumnName="ContestKeyword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoveListType">
+            <EntityTypeMapping TypeName="PtaModel.MoveListType">
+              <MappingFragment StoreEntitySet="MoveListType">
+                <ScalarProperty Name="MoveListTypeId" ColumnName="MoveListTypeId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MoveStat">
+            <EntityTypeMapping TypeName="PtaModel.MoveStat">
+              <MappingFragment StoreEntitySet="MoveStat">
+                <ScalarProperty Name="MoveStatId" ColumnName="MoveStatId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pokemon">
+            <EntityTypeMapping TypeName="PtaModel.Pokemon">
+              <MappingFragment StoreEntitySet="Pokemon">
+                <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EntryId" ColumnName="EntryId" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="Attack" ColumnName="Attack" />
+                <ScalarProperty Name="Defense" ColumnName="Defense" />
+                <ScalarProperty Name="SpecialAttack" ColumnName="SpecialAttack" />
+                <ScalarProperty Name="SpecialDefense" ColumnName="SpecialDefense" />
+                <ScalarProperty Name="Speed" ColumnName="Speed" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="MaleChance" ColumnName="MaleChance" />
+                <ScalarProperty Name="FemaleChance" ColumnName="FemaleChance" />
+                <ScalarProperty Name="AvgHatchRate" ColumnName="AvgHatchRate" />
+                <ScalarProperty Name="Diets" ColumnName="Diets" />
+                <ScalarProperty Name="Habitats" ColumnName="Habitats" />
+                <ScalarProperty Name="Burrow" ColumnName="Burrow" />
+                <ScalarProperty Name="Intelligence" ColumnName="Intelligence" />
+                <ScalarProperty Name="Jump" ColumnName="Jump" />
+                <ScalarProperty Name="Overland" ColumnName="Overland" />
+                <ScalarProperty Name="Power" ColumnName="Power" />
+                <ScalarProperty Name="Sky" ColumnName="Sky" />
+                <ScalarProperty Name="Surface" ColumnName="Surface" />
+                <ScalarProperty Name="Underwater" ColumnName="Underwater" />
+                <ScalarProperty Name="CaptureRate" ColumnName="CaptureRate" />
+                <ScalarProperty Name="ExperienceDrop" ColumnName="ExperienceDrop" />
+                <ScalarProperty Name="LevelUpScript" ColumnName="LevelUpScript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PokemonAbility">
+            <EntityTypeMapping TypeName="PtaModel.PokemonAbility">
+              <MappingFragment StoreEntitySet="PokemonAbility">
+                <ScalarProperty Name="PokemonAbilityId" ColumnName="PokemonAbilityId" />
+                <ScalarProperty Name="IsHighAbility" ColumnName="IsHighAbility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PokemonCapabilities">
+            <EntityTypeMapping TypeName="PtaModel.PokemonCapabilities">
+              <MappingFragment StoreEntitySet="PokemonCapabilities">
+                <ScalarProperty Name="PokemonCapabilityId" ColumnName="PokemonCapabilityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PokemonMove">
+            <EntityTypeMapping TypeName="PtaModel.PokemonMove">
+              <MappingFragment StoreEntitySet="PokemonMove">
+                <ScalarProperty Name="PokemonMoveId" ColumnName="PokemonMoveId" />
+                <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalMedicine">
+            <EntityTypeMapping TypeName="PtaModel.TechnicalMedicine">
+              <MappingFragment StoreEntitySet="TechnicalMedicine">
+                <ScalarProperty Name="TmRowId" ColumnName="TmRowId" />
+                <ScalarProperty Name="PtaId" ColumnName="PtaId" />
+                <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Type">
+            <EntityTypeMapping TypeName="PtaModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeEffective">
+            <EntityTypeMapping TypeName="PtaModel.TypeEffective">
+              <MappingFragment StoreEntitySet="TypeEffective">
+                <ScalarProperty Name="TypeEffectiveId" ColumnName="TypeEffectiveId" />
+                <ScalarProperty Name="Modifier" ColumnName="Modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Ability_0_0" TypeName="PtaModel.FK_Ability_0_0" StoreEntitySet="Ability">
+            <EndProperty Name="Keyword">
+              <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+            </EndProperty>
+            <EndProperty Name="Ability">
+              <ScalarProperty Name="AbilityId" ColumnName="AbilityId" />
+            </EndProperty>
+            <Condition IsNull="false" ColumnName="KeywordId" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonAbility_0_0" TypeName="PtaModel.FK_PokemonAbility_0_0" StoreEntitySet="PokemonAbility">
+            <EndProperty Name="Ability">
+              <ScalarProperty Name="AbilityId" ColumnName="AbilityId" />
+            </EndProperty>
+            <EndProperty Name="PokemonAbility">
+              <ScalarProperty Name="PokemonAbilityId" ColumnName="PokemonAbilityId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonCapabilities_0_0" TypeName="PtaModel.FK_PokemonCapabilities_0_0" StoreEntitySet="PokemonCapabilities">
+            <EndProperty Name="Capability">
+              <ScalarProperty Name="CapabilityId" ColumnName="CapabilityId" />
+            </EndProperty>
+            <EndProperty Name="PokemonCapabilities">
+              <ScalarProperty Name="PokemonCapabilityId" ColumnName="PokemonCapabilityId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Move_0_0" TypeName="PtaModel.FK_Move_0_0" StoreEntitySet="Move">
+            <EndProperty Name="ContestType">
+              <ScalarProperty Name="ContestTypeId" ColumnName="ContestTypeId" />
+            </EndProperty>
+            <EndProperty Name="Move">
+              <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Move_2_0" TypeName="PtaModel.FK_Move_2_0" StoreEntitySet="Move">
+            <EndProperty Name="Frequency">
+              <ScalarProperty Name="FrequencyId" ColumnName="FrequencyId" />
+            </EndProperty>
+            <EndProperty Name="Move">
+              <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Move_1_0" TypeName="PtaModel.FK_Move_1_0" StoreEntitySet="Move">
+            <EndProperty Name="MoveStat">
+              <ScalarProperty Name="MoveStatId" ColumnName="MoveStatId" />
+            </EndProperty>
+            <EndProperty Name="Move">
+              <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Move_3_0" TypeName="PtaModel.FK_Move_3_0" StoreEntitySet="Move">
+            <EndProperty Name="Type">
+              <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+            </EndProperty>
+            <EndProperty Name="Move">
+              <ScalarProperty Name="MoveId" ColumnName="MoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonMove_0_0" TypeName="PtaModel.FK_PokemonMove_0_0" StoreEntitySet="PokemonMove">
+            <EndProperty Name="MoveListType">
+              <ScalarProperty Name="MoveListTypeId" ColumnName="MoveListType" />
+            </EndProperty>
+            <EndProperty Name="PokemonMove">
+              <ScalarProperty Name="PokemonMoveId" ColumnName="PokemonMoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Pokemon_0_0" TypeName="PtaModel.FK_Pokemon_0_0" StoreEntitySet="Pokemon">
+            <EndProperty Name="Type">
+              <ScalarProperty Name="TypeId" ColumnName="TypeTwoId" />
+            </EndProperty>
+            <EndProperty Name="Pokemon">
+              <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Pokemon_1_0" TypeName="PtaModel.FK_Pokemon_1_0" StoreEntitySet="Pokemon">
+            <EndProperty Name="Type">
+              <ScalarProperty Name="TypeId" ColumnName="TypeOneId" />
+            </EndProperty>
+            <EndProperty Name="Pokemon">
+              <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonAbility_1_0" TypeName="PtaModel.FK_PokemonAbility_1_0" StoreEntitySet="PokemonAbility">
+            <EndProperty Name="Pokemon">
+              <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+            </EndProperty>
+            <EndProperty Name="PokemonAbility">
+              <ScalarProperty Name="PokemonAbilityId" ColumnName="PokemonAbilityId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonCapabilities_1_0" TypeName="PtaModel.FK_PokemonCapabilities_1_0" StoreEntitySet="PokemonCapabilities">
+            <EndProperty Name="Pokemon">
+              <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+            </EndProperty>
+            <EndProperty Name="PokemonCapabilities">
+              <ScalarProperty Name="PokemonCapabilityId" ColumnName="PokemonCapabilityId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_PokemonMove_2_0" TypeName="PtaModel.FK_PokemonMove_2_0" StoreEntitySet="PokemonMove">
+            <EndProperty Name="Pokemon">
+              <ScalarProperty Name="PokemonId" ColumnName="PokemonId" />
+            </EndProperty>
+            <EndProperty Name="PokemonMove">
+              <ScalarProperty Name="PokemonMoveId" ColumnName="PokemonMoveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_TypeEffective_0_0" TypeName="PtaModel.FK_TypeEffective_0_0" StoreEntitySet="TypeEffective">
+            <EndProperty Name="Type">
+              <ScalarProperty Name="TypeId" ColumnName="DefendingId" />
+            </EndProperty>
+            <EndProperty Name="TypeEffective">
+              <ScalarProperty Name="TypeEffectiveId" ColumnName="TypeEffectiveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_TypeEffective_1_0" TypeName="PtaModel.FK_TypeEffective_1_0" StoreEntitySet="TypeEffective">
+            <EndProperty Name="Type">
+              <ScalarProperty Name="TypeId" ColumnName="AttackingId" />
+            </EndProperty>
+            <EndProperty Name="TypeEffective">
+              <ScalarProperty Name="TypeEffectiveId" ColumnName="TypeEffectiveId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
