@@ -1,4 +1,5 @@
 ﻿using Prism.Events;
+using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using PtaSheet.Infrastructure.Events;
 using System.Collections.ObjectModel;
@@ -16,6 +17,7 @@ namespace PtaSheet.ViewModels
         private readonly StatusEvent _statusEvent;
         private ICommand _addCapabilityCommand;
         private ICommand _removeCapabilityCommand;
+        private InteractionRequest<IConfirmation> _confirmationRequest;
 
 
         public ObservableCollection<Model.Ability> Abilities
@@ -89,7 +91,22 @@ namespace PtaSheet.ViewModels
                 RaisePropertyChanged(nameof(SelectedAbility));
             }
         }
-        
+
+        public ICommand AddCapabilityCommand
+        {
+            get => _addCapabilityCommand;
+            private set => SetProperty(ref _addCapabilityCommand, value);
+        }
+        public ICommand RemoveCapabilityCommand
+        {
+            get => _removeCapabilityCommand;
+            private set => SetProperty(ref _removeCapabilityCommand, value);
+        }
+        public InteractionRequest<IConfirmation> ConfirmationRequest
+        {
+            get => _confirmationRequest;
+            private set => SetProperty(ref _confirmationRequest, value);
+        }
 
 
         public AbilityEditorViewModel()

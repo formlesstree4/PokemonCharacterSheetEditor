@@ -15,7 +15,9 @@
             <TabItem Header="Capabilities">
                 <ContentControl prism:RegionManager.RegionName="EditorCapabilityRegion" />
             </TabItem>
-            <TabItem Header="Abilities" />
+            <TabItem Header="Abilities">
+                <ContentControl prism:RegionManager.RegionName="EditorAbilityRegion" />
+            </TabItem>
             <TabItem Header="Moves" />
         </TabControl>
     </Grid>

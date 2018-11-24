@@ -10,6 +10,7 @@ namespace PtaSheet.ViewModels
         public EditorViewModel(IRegionManager regionManager)
         {
             regionManager.RegisterViewWithRegion(Constants.EditorCapabilityRegionName, typeof(Views.CapabilityEditor));
+            regionManager.RegisterViewWithRegion(Constants.EditorAbilityRegionName, typeof(Views.AbilityEditor));
         }
     }
 }

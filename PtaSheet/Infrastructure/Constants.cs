@@ -11,6 +11,7 @@
         public const string StatusRegionName = "StatusBarContentRegion";
 
         public const string EditorCapabilityRegionName = "EditorCapabilityRegion";
+        public const string EditorAbilityRegionName = "EditorAbilityRegion";
 
     }
 }
