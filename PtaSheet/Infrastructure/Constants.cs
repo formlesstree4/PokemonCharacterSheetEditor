@@ -10,6 +10,7 @@
         public const string MainWindowRegionName = "PtaSheetMainContentRegion";
         public const string StatusRegionName = "StatusBarContentRegion";
 
+        public const string EditorCapabilityRegionName = "EditorCapabilityRegion";
 
     }
 }

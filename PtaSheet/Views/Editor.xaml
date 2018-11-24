@@ -13,22 +13,10 @@
     <Grid>
         <TabControl>
             <TabItem Header="Capabilities">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="40" />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    
-                </Grid>
+                <ContentControl prism:RegionManager.RegionName="EditorCapabilityRegion" />
             </TabItem>
-            <TabItem Header="Abilities">
-                <Grid>
-                    <Button Command="{Binding AbilitiesCommand}" Content="Abilities" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Moves">
-                <Grid></Grid>
-            </TabItem>
+            <TabItem Header="Abilities" />
+            <TabItem Header="Moves" />
         </TabControl>
     </Grid>
 </UserControl>
