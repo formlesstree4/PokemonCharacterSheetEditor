@@ -4,7 +4,6 @@ using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using PtaSheet.Infrastructure.Events;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Windows.Input;
 
 namespace PtaSheet.ViewModels
@@ -17,8 +16,8 @@ namespace PtaSheet.ViewModels
         private Model.Ability _selectedAbility;
         private Model.PtaConnection _connection;
         private readonly StatusEvent _statusEvent;
-        private ICommand _addCapabilityCommand;
-        private ICommand _removeCapabilityCommand;
+        private ICommand _addAbilityCommand;
+        private ICommand _removeAbilityCommand;
         private InteractionRequest<IConfirmation> _confirmationRequest;
 
 
@@ -39,10 +38,10 @@ namespace PtaSheet.ViewModels
             get => _selectedAbility;
             set
             {
-                if ((!(_selectedAbility is null)) && _connection.ChangeTracker.HasChanges())
-                {
-                    SaveAllChanges();
-                }
+                //if ((!(_selectedAbility is null)) && _connection.ChangeTracker.HasChanges())
+                //{
+                //    SaveAllChanges();
+                //}
                 SetProperty(ref _selectedAbility, value);
                 RaisePropertyChanged(nameof(Activation));
                 RaisePropertyChanged(nameof(Effect));
@@ -102,15 +101,15 @@ namespace PtaSheet.ViewModels
             }
         }
 
-        public ICommand AddCapabilityCommand
+        public ICommand AddAbilityCommand
         {
-            get => _addCapabilityCommand;
-            private set => SetProperty(ref _addCapabilityCommand, value);
+            get => _addAbilityCommand;
+            private set => SetProperty(ref _addAbilityCommand, value);
         }
-        public ICommand RemoveCapabilityCommand
+        public ICommand RemoveAbilityCommand
         {
-            get => _removeCapabilityCommand;
-            private set => SetProperty(ref _removeCapabilityCommand, value);
+            get => _removeAbilityCommand;
+            private set => SetProperty(ref _removeAbilityCommand, value);
         }
         public InteractionRequest<IConfirmation> ConfirmationRequest
         {
@@ -147,7 +146,7 @@ namespace PtaSheet.ViewModels
             Abilities = new ObservableCollection<Model.Ability>(connection.Ability);
             Keywords = new ReadOnlyObservableCollection<Model.Keyword>(new ObservableCollection<Model.Keyword>(connection.Keyword));
 
-            AddCapabilityCommand = new DelegateCommand(() =>
+            AddAbilityCommand = new DelegateCommand(() =>
             {
                 var newModel = _connection.Ability.Create();
                 newModel.Name = "New Ability";
@@ -160,7 +159,7 @@ namespace PtaSheet.ViewModels
                 Abilities.Add(newModel);
                 SelectedAbility = newModel;
             });
-            RemoveCapabilityCommand = new DelegateCommand(() =>
+            RemoveAbilityCommand = new DelegateCommand(() =>
             {
                 ConfirmationRequest.Raise(new Confirmation
                 {

@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Infrastructure\Converters\NullToBooleanConverter.cs" />
     <Compile Include="Infrastructure\Events\StatusEvent.cs" />
+    <Compile Include="Infrastructure\Events\WindowTitleEvent.cs" />
     <Compile Include="Model\Ability.cs">
       <DependentUpon>PtaProvider.tt</DependentUpon>
     </Compile>
@@ -120,12 +121,20 @@
     </Compile>
     <Compile Include="ViewModels\AbilityEditorViewModel.cs" />
     <Compile Include="ViewModels\CapabilityEditorViewModel.cs" />
+    <Compile Include="ViewModels\EditorMenuBarViewModel.cs" />
+    <Compile Include="ViewModels\MainMenuBarViewModel.cs" />
     <Compile Include="ViewModels\StatusBarViewModel.cs" />
     <Compile Include="Views\AbilityEditor.xaml.cs">
       <DependentUpon>AbilityEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CapabilityEditor.xaml.cs">
       <DependentUpon>CapabilityEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditorMenuBar.xaml.cs">
+      <DependentUpon>EditorMenuBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenuBar.xaml.cs">
+      <DependentUpon>MainMenuBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatusBar.xaml.cs">
       <DependentUpon>StatusBar.xaml</DependentUpon>
@@ -139,6 +148,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EditorMenuBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainMenuBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

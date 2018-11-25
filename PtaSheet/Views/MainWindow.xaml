@@ -15,13 +15,14 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="26" />
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0">
+        <!--<Menu Grid.Row="0">
             <MenuItem Header="File"></MenuItem>
             <MenuItem Header="View">
                 <MenuItem Command="{Binding LoadEditorCommand}" Header="Load Database Editor" />
                 <MenuItem Command="{Binding LoadPtaSheetCommand}" Header="Load PtaSheet" />
             </MenuItem>
-        </Menu>
+        </Menu>-->
+        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="MenuBarContentRegion" />
         <ContentControl Grid.Row="1" prism:RegionManager.RegionName="PtaSheetMainContentRegion" />
         <ContentControl Grid.Row="2" prism:RegionManager.RegionName="StatusBarContentRegion" />
     </Grid>

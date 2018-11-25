@@ -11,6 +11,7 @@ namespace PtaSheet.ViewModels
         {
             regionManager.RegisterViewWithRegion(Constants.EditorCapabilityRegionName, typeof(Views.CapabilityEditor));
             regionManager.RegisterViewWithRegion(Constants.EditorAbilityRegionName, typeof(Views.AbilityEditor));
+            regionManager.RequestNavigate(Constants.MenuBarRegionName, nameof(Views.EditorMenuBar));
         }
     }
 }
