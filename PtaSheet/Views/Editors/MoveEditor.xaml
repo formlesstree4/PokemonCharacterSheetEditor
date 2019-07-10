@@ -1,18 +1,18 @@
-﻿<UserControl x:Class="PtaSheet.Views.MoveEditor"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:PtaSheet.ViewModels"
-             xmlns:conversion="clr-namespace:PtaSheet.Infrastructure.Converters"
-             mc:Ignorable="d"
-             d:DesignWidth="300"
-             d:DesignHeight="300"             
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prism="http://prismlibrary.com/"
-             d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=local:MoveEditorViewModel}"
-             prism:ViewModelLocator.AutoWireViewModel="True">
-
+﻿<UserControl
+    x:Class="PtaSheet.Views.MoveEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:conversion="clr-namespace:PtaSheet.Infrastructure.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:PtaSheet.ViewModels"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"             
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=local:MoveEditorViewModel}"
+    mc:Ignorable="d"
+    prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
         <conversion:NullToBooleanConverter x:Key="nullabilityToBoolean" />
     </UserControl.Resources>
@@ -21,7 +21,11 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <i:Interaction.Triggers>
+            <prism:InteractionRequestTrigger SourceObject="{Binding ConfirmationRequest, Mode=OneWay}">
+                <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True"/>
+            </prism:InteractionRequestTrigger>
+        </i:Interaction.Triggers>
 
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -39,7 +43,7 @@
             <ComboBox
                 Grid.Column="1"
                 ItemsSource="{Binding Moves, UpdateSourceTrigger=PropertyChanged}"
-                SelectedItem="{Binding SelectedMove, UpdateSourceTrigger=PropertyChanged}"
+                SelectedItem="{Binding SelectedMove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                 VerticalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>

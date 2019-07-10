@@ -1,9 +1,11 @@
-﻿using Prism.Events;
+﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 using PtaSheet.Infrastructure;
 using PtaSheet.Infrastructure.Events;
 using PtaSheet.Views;
+using System.Windows.Input;
 
 namespace PtaSheet.ViewModels
 {
@@ -11,8 +13,10 @@ namespace PtaSheet.ViewModels
     {
 
         private string _windowTitle = "";
+        private StatusEvent _statusEvent;
 
-
+        public ICommand LoadEditorCommand { get; set; }
+        public ICommand LoadPtaSheetCommand { get; set; }
 
         public string WindowTitle
         {
@@ -37,7 +41,6 @@ namespace PtaSheet.ViewModels
                 WindowTitle = "PtaSheet - Data Editor";
             });
 
-            LoadPtaSheetCommand = new DelegateCommand(() =>
             eventAggregator.GetEvent<WindowTitleEvent>().Subscribe((title) =>
             {
                 WindowTitle = title;
