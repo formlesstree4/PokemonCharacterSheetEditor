@@ -25,11 +25,10 @@ namespace PtaSheet.ViewModels
             get => _selectedCapability;
             set
             {
-                if ((!(_selectedCapability is null)) && _connection.ChangeTracker.HasChanges())
-                {
-                    SaveAllChanges();
-                }
-
+                //if ((!(_selectedCapability is null)) && _connection.ChangeTracker.HasChanges())
+                //{
+                //    SaveAllChanges();
+                //}
                 SetProperty(ref _selectedCapability, value);
             }
         }
@@ -78,10 +77,6 @@ namespace PtaSheet.ViewModels
             _connection = connection;
             ConfirmationRequest = new InteractionRequest<IConfirmation>();
             Capabilities = new ObservableCollection<Model.Capability>(connection.Capability);
-            if (Capabilities.Count > 0)
-            {
-                SelectedCapability = Capabilities[0];
-            }
             AddCapabilityCommand = new DelegateCommand(() =>
             {
                 var newModel = _connection.Capability.Create();

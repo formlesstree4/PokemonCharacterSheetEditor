@@ -18,6 +18,8 @@ namespace PtaSheet
         {
             containerRegistry.RegisterSingleton<Model.PtaConnection>();
             containerRegistry.RegisterForNavigation<Editor>();
+            containerRegistry.RegisterForNavigation<MainMenuBar>();
+            containerRegistry.RegisterForNavigation<EditorMenuBar>();
         }
     }
 }

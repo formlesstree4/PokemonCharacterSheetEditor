@@ -1,11 +1,9 @@
-﻿using Prism.Commands;
-using Prism.Events;
+﻿using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
 using PtaSheet.Infrastructure;
 using PtaSheet.Infrastructure.Events;
 using PtaSheet.Views;
-using System.Windows.Input;
 
 namespace PtaSheet.ViewModels
 {
@@ -13,9 +11,6 @@ namespace PtaSheet.ViewModels
     {
 
         private string _windowTitle = "";
-        private ICommand _loadEditorCommand;
-        private ICommand _loadPtaSheetCommand;
-        private StatusEvent _statusEvent;
 
 
 
@@ -24,16 +19,7 @@ namespace PtaSheet.ViewModels
             get => _windowTitle;
             private set => SetProperty(ref _windowTitle, value);
         }
-        public ICommand LoadEditorCommand
-        {
-            get => _loadEditorCommand;
-            private set => SetProperty(ref _loadEditorCommand, value);
-        }
-        public ICommand LoadPtaSheetCommand
-        {
-            get => _loadPtaSheetCommand;
-            private set => SetProperty(ref _loadPtaSheetCommand, value);
-        }
+
 
 
 
@@ -52,10 +38,12 @@ namespace PtaSheet.ViewModels
             });
 
             LoadPtaSheetCommand = new DelegateCommand(() =>
+            eventAggregator.GetEvent<WindowTitleEvent>().Subscribe((title) =>
             {
-                _statusEvent.Publish("PtaSheet MainWindow not yet finished!");
+                WindowTitle = title;
             });
-
+            regionManager.RegisterViewWithRegion(Constants.MenuBarRegionName, typeof(MainMenuBar));
+            regionManager.RegisterViewWithRegion(Constants.StatusRegionName, typeof(StatusBar));
         }
 
     }
