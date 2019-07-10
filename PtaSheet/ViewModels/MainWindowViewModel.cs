@@ -45,7 +45,6 @@ namespace PtaSheet.ViewModels
 
             LoadEditorCommand = new DelegateCommand(() =>
             {
-                var region = regionManager.Regions[Constants.MainWindowRegionName];
                 _statusEvent.Publish("Loading PtaSheet Editor...");
                 regionManager.RequestNavigate(Constants.MainWindowRegionName, nameof(Editor));
                 _statusEvent.Publish("Editor loaded!");

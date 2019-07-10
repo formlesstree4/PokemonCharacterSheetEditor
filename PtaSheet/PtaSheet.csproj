@@ -120,12 +120,16 @@
     </Compile>
     <Compile Include="ViewModels\AbilityEditorViewModel.cs" />
     <Compile Include="ViewModels\CapabilityEditorViewModel.cs" />
+    <Compile Include="ViewModels\MoveEditorViewModel.cs" />
     <Compile Include="ViewModels\StatusBarViewModel.cs" />
     <Compile Include="Views\AbilityEditor.xaml.cs">
       <DependentUpon>AbilityEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CapabilityEditor.xaml.cs">
       <DependentUpon>CapabilityEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MoveEditor.xaml.cs">
+      <DependentUpon>MoveEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatusBar.xaml.cs">
       <DependentUpon>StatusBar.xaml</DependentUpon>
@@ -160,6 +164,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MoveEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\StatusBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -196,7 +204,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Model\PtaDb.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -205,16 +213,16 @@
     </PackageReference>
     <PackageReference Include="Prism.Unity" Version="7.1.0.431&#xD;" />
     <PackageReference Include="System.Data.Sqlite">
-      <Version>1.0.109.2</Version>
+      <Version>1.0.111</Version>
     </PackageReference>
     <PackageReference Include="System.Data.Sqlite.Core">
-      <Version>1.0.109.2</Version>
+      <Version>1.0.111</Version>
     </PackageReference>
     <PackageReference Include="System.Data.Sqlite.EF6">
-      <Version>1.0.109</Version>
+      <Version>1.0.111</Version>
     </PackageReference>
     <PackageReference Include="System.Data.Sqlite.Linq">
-      <Version>1.0.109</Version>
+      <Version>1.0.111</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

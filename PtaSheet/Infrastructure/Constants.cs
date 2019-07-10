@@ -12,6 +12,7 @@
 
         public const string EditorCapabilityRegionName = "EditorCapabilityRegion";
         public const string EditorAbilityRegionName = "EditorAbilityRegion";
+        public const string EditorMoveRegionName = "EditorMoveRegion";
 
     }
 }
