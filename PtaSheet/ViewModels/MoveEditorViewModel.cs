@@ -4,6 +4,7 @@ using Prism.Mvvm;
 using PtaSheet.Infrastructure.Events;
 using PtaSheet.Model;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace PtaSheet.ViewModels
 {
@@ -15,11 +16,24 @@ namespace PtaSheet.ViewModels
         private readonly StatusEvent _statusEvent;
         private ObservableCollection<Move> _moves;
         private Move _move;
+        private ICommand _addMoveCommand;
+        private ICommand _removeMoveCommand;
 
         public ObservableCollection<Move> Moves
         {
             get => _moves;
             private set => SetProperty(ref _moves, value);
+        }
+
+        public ICommand AddMoveCommand
+        {
+            get => _addMoveCommand;
+            private set => SetProperty(ref _addMoveCommand, value);
+        }
+        public ICommand RemoveMoveCommand
+        {
+            get => _removeMoveCommand;
+            private set => SetProperty(ref _removeMoveCommand, value);
         }
 
         public Move SelectedMove

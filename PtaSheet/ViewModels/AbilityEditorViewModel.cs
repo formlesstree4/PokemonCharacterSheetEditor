@@ -44,64 +44,8 @@ namespace PtaSheet.ViewModels
                     SaveAllChanges();
                 }
                 SetProperty(ref _selectedAbility, value);
-                RaisePropertyChanged(nameof(Activation));
-                RaisePropertyChanged(nameof(Effect));
-                RaisePropertyChanged(nameof(Limit));
-                RaisePropertyChanged(nameof(Name));
-                RaisePropertyChanged(nameof(SelectedKeyword));
             }
         }
-        public string Activation
-        {
-            get => SelectedAbility?.Activation ?? "";
-            set
-            {
-                SelectedAbility.Activation = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedAbility));
-            }
-        }
-        public string Effect
-        {
-            get => SelectedAbility?.Effect ?? "";
-            set
-            {
-                SelectedAbility.Effect = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedAbility));
-            }
-        }
-        public string Limit
-        {
-            get => SelectedAbility?.Limit ?? "";
-            set
-            {
-                SelectedAbility.Limit = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedAbility));
-            }
-        }
-        public string Name
-        {
-            get => SelectedAbility?.Name ?? "";
-            set
-            {
-                SelectedAbility.Name = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedAbility));
-            }
-        }
-        public Model.Keyword SelectedKeyword
-        {
-            get => SelectedAbility?.Keyword;
-            set
-            {
-                SelectedAbility.Keyword = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedAbility));
-            }
-        }
-
         public ICommand AddCapabilityCommand
         {
             get => _addCapabilityCommand;
@@ -185,6 +129,5 @@ namespace PtaSheet.ViewModels
             _connection.SaveChanges();
             _statusEvent.Publish($"The data source has been updated successfully!");
         }
-
     }
 }

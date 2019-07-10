@@ -31,8 +31,6 @@ namespace PtaSheet.ViewModels
                 }
 
                 SetProperty(ref _selectedCapability, value);
-                RaisePropertyChanged(nameof(Name));
-                RaisePropertyChanged(nameof(Description));
             }
         }
         public ObservableCollection<Model.Capability> Capabilities
@@ -52,26 +50,6 @@ namespace PtaSheet.ViewModels
             private set => SetProperty(ref _removeCapabilityCommand, value);
         }
 
-        public string Name
-        {
-            get => SelectedCapability?.Name ?? "";
-            set
-            {
-                SelectedCapability.Name = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedCapability));
-            }
-        }
-        public string Description
-        {
-            get => SelectedCapability?.Description ?? "";
-            set
-            {
-                SelectedCapability.Description = value;
-                RaisePropertyChanged();
-                RaisePropertyChanged(nameof(SelectedCapability));
-            }
-        }
         public InteractionRequest<IConfirmation> ConfirmationRequest
         {
             get => _confirmationRequest;

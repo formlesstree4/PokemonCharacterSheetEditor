@@ -52,6 +52,19 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
 
+            <Button
+                Command="{Binding AddCapabilityCommand}"
+                Content="+"
+                Grid.Column="2"
+                Margin="10"/>
+
+            <Button
+                Command="{Binding RemoveCapabilityCommand}"
+                Content="-"
+                Grid.Column="3"
+                IsEnabled="{Binding SelectedCapability, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
+                Margin="10"/>
+
         </Grid>
 
     </Grid>

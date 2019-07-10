@@ -91,7 +91,7 @@
                 Grid.Column="1"
                 Grid.Row="0"
                 IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Activation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding SelectedAbility.Activation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
             <TextBlock
@@ -104,7 +104,7 @@
                 Grid.Column="1"
                 Grid.Row="1"
                 IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Effect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding SelectedAbility.Effect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
             <TextBlock
@@ -130,7 +130,7 @@
                 Grid.Column="1"
                 Grid.Row="3"
                 IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding SelectedAbility.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 VerticalAlignment="Center" />
 
             <TextBlock
@@ -144,7 +144,7 @@
                 Grid.Row="4"
                 IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 ItemsSource="{Binding Keywords}"
-                SelectedItem="{Binding SelectedKeyword}"
+                SelectedItem="{Binding SelectedAbility.Keyword}"
                 VerticalAlignment="Center">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
