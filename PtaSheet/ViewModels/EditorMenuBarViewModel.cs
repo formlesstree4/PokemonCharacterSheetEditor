@@ -30,7 +30,7 @@ namespace PtaSheet.ViewModels
 
 
         public EditorMenuBarViewModel() { }
-        public EditorMenuBarViewModel(IRegionManager regionManager, IEventAggregator eventAggregator, Model.PtaConnection connection)
+        public EditorMenuBarViewModel(IRegionNavigationService navServ, IRegionManager regionManager, IEventAggregator eventAggregator, Model.PtaConnection connection)
         {
             _statusEvent = eventAggregator.GetEvent<StatusEvent>();
             _connection = connection;
@@ -38,8 +38,7 @@ namespace PtaSheet.ViewModels
             ReturnCommand = new DelegateCommand(() =>
             {
                 SaveAllChanges();
-                //regionManager.RequestNavigate(Constants.MenuBarRegionName, )
-
+                navServ.Journal.GoBack();
             });
         }
 

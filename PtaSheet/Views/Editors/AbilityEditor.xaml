@@ -41,16 +41,11 @@
                 Text="Ability: "
                 VerticalAlignment="Center" />
             <ComboBox
+                DisplayMemberPath="Name"
                 Grid.Column="1"
                 ItemsSource="{Binding Abilities, UpdateSourceTrigger=PropertyChanged}"
                 SelectedItem="{Binding SelectedAbility, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                VerticalAlignment="Center">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                VerticalAlignment="Center"/>
 
             <Button
                 Command="{Binding AddAbilityCommand}"
@@ -140,19 +135,13 @@
                 Text="Keyword: "
                 VerticalAlignment="Center" />
             <ComboBox
+                DisplayMemberPath="Name"
                 Grid.Column="1"
                 Grid.Row="4"
                 IsEnabled="{Binding SelectedAbility, Converter={StaticResource nullabilityToBoolean}, UpdateSourceTrigger=PropertyChanged}"
                 ItemsSource="{Binding Keywords}"
                 SelectedItem="{Binding SelectedAbility.Keyword}"
-                VerticalAlignment="Center">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-
+                VerticalAlignment="Center"/>
 
         </Grid>
 

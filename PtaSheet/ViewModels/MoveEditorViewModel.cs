@@ -18,12 +18,38 @@ namespace PtaSheet.ViewModels
         private Move _move;
         private ICommand _addMoveCommand;
         private ICommand _removeMoveCommand;
+        private ObservableCollection<Type> _types;
+        private ObservableCollection<Frequency> _frequencies;
+        private ObservableCollection<MoveStat> _moveStats;
+        private ObservableCollection<ContestType> _contestTypes;
 
         public ObservableCollection<Move> Moves
         {
             get => _moves;
             private set => SetProperty(ref _moves, value);
         }
+        public ObservableCollection<Type> Types
+        {
+            get => _types;
+            private set => SetProperty(ref _types, value);
+        }
+        public ObservableCollection<Frequency> Frequencies
+        {
+            get => _frequencies;
+            private set => SetProperty(ref _frequencies, value);
+        }
+        public ObservableCollection<MoveStat> MoveStats
+        {
+            get => _moveStats;
+            private set => SetProperty(ref _moveStats, value);
+        }
+        public ObservableCollection<ContestType> ContestTypes
+        {
+            get => _contestTypes;
+            private set => SetProperty(ref _contestTypes, value);
+        }
+ 
+
 
         public ICommand AddMoveCommand
         {
@@ -35,13 +61,11 @@ namespace PtaSheet.ViewModels
             get => _removeMoveCommand;
             private set => SetProperty(ref _removeMoveCommand, value);
         }
-
         public Move SelectedMove
         {
             get => _move;
             set => SetProperty(ref _move, value);
         }
-
         public InteractionRequest<IConfirmation> ConfirmationRequest
         {
             get => _confirmationRequest;
@@ -69,6 +93,10 @@ namespace PtaSheet.ViewModels
             {
                 SelectedMove = Moves[0];
             }
+            Types = new ObservableCollection<Type>(connection.Type);
+            Frequencies = new ObservableCollection<Frequency>(connection.Frequency);
+            MoveStats = new ObservableCollection<MoveStat>(connection.MoveStat);
+            ContestTypes = new ObservableCollection<ContestType>(connection.ContestType);
         }
     }
 }

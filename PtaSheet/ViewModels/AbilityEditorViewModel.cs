@@ -121,6 +121,11 @@ namespace PtaSheet.ViewModels
                 });
             });
 
+            if (Abilities.Any())
+            {
+                SelectedAbility = Abilities[0];
+            }
+
         }
 
         private void SaveAllChanges()

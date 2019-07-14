@@ -41,16 +41,11 @@
                 Text="Capability: "
                 VerticalAlignment="Center" />
             <ComboBox
+                DisplayMemberPath="Name"
                 Grid.Column="1"
                 ItemsSource="{Binding Capabilities, UpdateSourceTrigger=PropertyChanged}"
                 SelectedItem="{Binding SelectedCapability, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                VerticalAlignment="Center">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+                VerticalAlignment="Center"/>
 
             <Button
                 Command="{Binding AddCapabilityCommand}"

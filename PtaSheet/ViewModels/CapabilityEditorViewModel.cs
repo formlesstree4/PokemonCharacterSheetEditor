@@ -4,6 +4,7 @@ using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using PtaSheet.Infrastructure.Events;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace PtaSheet.ViewModels
@@ -25,10 +26,6 @@ namespace PtaSheet.ViewModels
             get => _selectedCapability;
             set
             {
-                //if ((!(_selectedCapability is null)) && _connection.ChangeTracker.HasChanges())
-                //{
-                //    SaveAllChanges();
-                //}
                 SetProperty(ref _selectedCapability, value);
             }
         }
@@ -102,6 +99,10 @@ namespace PtaSheet.ViewModels
                     Capabilities.Remove(SelectedCapability);
                 });
             });
+            if (Capabilities.Any())
+            {
+                SelectedCapability = Capabilities[0];
+            }
         }
 
 
