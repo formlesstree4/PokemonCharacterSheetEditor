@@ -112,7 +112,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Effect:" VerticalAlignment="Top"/>
-                    <TextBox Grid.Column="1" Height="100" Text="{Binding SelectedMove.Name, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Visible"/>
+                    <TextBox AcceptsReturn="True" AcceptsTab="True" Grid.Column="1" Height="100" Text="{Binding SelectedMove.Name, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Visible"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -120,7 +120,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Script:" VerticalAlignment="Top"/>
-                    <TextBox Grid.Column="1" Height="100" IsReadOnly="True" Text="{Binding SelectedMove.Name, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Visible"/>
+                    <TextBox AcceptsReturn="True" AcceptsTab="True" Grid.Column="1" Height="100" IsReadOnly="True" Text="{Binding SelectedMove.Name, UpdateSourceTrigger=PropertyChanged}" VerticalScrollBarVisibility="Visible"/>
                 </Grid>
                 <UniformGrid
                     Columns="4"

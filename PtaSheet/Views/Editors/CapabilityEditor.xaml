@@ -96,7 +96,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Text="Description:" VerticalAlignment="Top"/>
-                <TextBox Grid.Column="1" Height="100" Text="{Binding SelectedCapability.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible"/>
+                <TextBox AcceptsReturn="True" AcceptsTab="True" Grid.Column="1" Height="100" Text="{Binding SelectedCapability.Description, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="5,4,3,4"/>
             </Grid>
 
         </StackPanel>
