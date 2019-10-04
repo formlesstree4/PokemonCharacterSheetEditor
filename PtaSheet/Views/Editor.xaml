@@ -21,6 +21,9 @@
             <TabItem Header="Moves">
                 <ContentControl prism:RegionManager.RegionName="EditorMoveRegion" />
             </TabItem>
+            <TabItem Header="Pokemon">
+                <ContentControl prism:RegionManager.RegionName="EditorPokemonRegion" />
+            </TabItem>
         </TabControl>
     </Grid>
 </UserControl>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace PtaSheet.Views
+namespace PtaSheet.Views.Editors
 {
     /// <summary>
     /// Interaction logic for AbilityEditor

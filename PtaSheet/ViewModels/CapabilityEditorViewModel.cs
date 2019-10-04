@@ -17,7 +17,6 @@ namespace PtaSheet.ViewModels
         private Model.PtaConnection _connection;
         private ObservableCollection<Model.Capability> _capabilities;
         private Model.Capability _selectedCapability;
-        private readonly StatusEvent _statusEvent;
         private ICommand _removeCapabilityCommand;
 
 
@@ -70,7 +69,6 @@ namespace PtaSheet.ViewModels
         }
         public CapabilityEditorViewModel(IEventAggregator eventAggregator, Model.PtaConnection connection)
         {
-            _statusEvent = eventAggregator.GetEvent<StatusEvent>();
             _connection = connection;
             ConfirmationRequest = new InteractionRequest<IConfirmation>();
             Capabilities = new ObservableCollection<Model.Capability>(connection.Capability);
@@ -105,16 +103,6 @@ namespace PtaSheet.ViewModels
             }
         }
 
-
-
-        private void SaveAllChanges()
-        {
-            _statusEvent.Publish($"Applying changes... please wait...");
-            _connection.SaveChanges();
-            _statusEvent.Publish($"The data source has been updated successfully!");
-        }
-
     }
-
 
 }

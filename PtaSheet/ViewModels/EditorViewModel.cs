@@ -9,9 +9,10 @@ namespace PtaSheet.ViewModels
         public EditorViewModel() { }
         public EditorViewModel(IRegionManager regionManager)
         {
-            regionManager.RegisterViewWithRegion(Constants.EditorCapabilityRegionName, typeof(Views.CapabilityEditor));
-            regionManager.RegisterViewWithRegion(Constants.EditorAbilityRegionName, typeof(Views.AbilityEditor));
-            regionManager.RegisterViewWithRegion(Constants.EditorMoveRegionName, typeof(Views.MoveEditor));
+            regionManager.RegisterViewWithRegion(Constants.EditorCapabilityRegionName, typeof(Views.Editors.CapabilityEditor));
+            regionManager.RegisterViewWithRegion(Constants.EditorAbilityRegionName, typeof(Views.Editors.AbilityEditor));
+            regionManager.RegisterViewWithRegion(Constants.EditorMoveRegionName, typeof(Views.Editors.MoveEditor));
+            regionManager.RegisterViewWithRegion(Constants.EditorPokemonRegionName, typeof(Views.Editors.PokemonEditor));
 
             regionManager.RequestNavigate(Constants.MenuBarRegionName, nameof(Views.EditorMenuBar));
         }

@@ -3,11 +3,11 @@
 namespace PtaSheet.Views.Editors
 {
     /// <summary>
-    /// Interaction logic for MoveEditor
+    /// Interaction logic for PokemonEditor
     /// </summary>
-    public partial class MoveEditor : UserControl
+    public partial class PokemonEditor : UserControl
     {
-        public MoveEditor()
+        public PokemonEditor()
         {
             InitializeComponent();
         }
