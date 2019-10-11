@@ -11,9 +11,6 @@ namespace PtaSheet.ViewModels
     public sealed class MoveEditorViewModel : BindableBase
     {
         private InteractionRequest<IConfirmation> _confirmationRequest;
-        private readonly IEventAggregator _eventAggregator;
-        private readonly PtaConnection _connection;
-        private readonly StatusEvent _statusEvent;
         private ObservableCollection<Move> _moves;
         private Move _move;
         private ICommand _addMoveCommand;

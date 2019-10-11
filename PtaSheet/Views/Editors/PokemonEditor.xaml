@@ -3,16 +3,17 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:conversion="clr-namespace:PtaSheet.Infrastructure.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:e="http://schemas.xceed.com/wpf/xaml/toolkit"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
     xmlns:local="clr-namespace:PtaSheet.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prism="http://prismlibrary.com/"             
+    xmlns:prism="http://prismlibrary.com/"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     d:DataContext="{d:DesignInstance IsDesignTimeCreatable=False, Type=local:PokemonEditorViewModel}"
     mc:Ignorable="d"
     prism:ViewModelLocator.AutoWireViewModel="True">
     <UserControl.Resources>
-        <conversion:NullToBooleanConverter x:Key="nullabilityToBoolean" />
+        <conversion:NullToBooleanConverter x:Key="nullabilityToBoolean"/>
         <Style TargetType="{x:Type ComboBox}">
             <Setter Property="Margin" Value="4" />
             <Setter Property="Padding" Value="4"/>
@@ -32,6 +33,14 @@
                     <Setter Property="Background" Value="DarkGray"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type e:IntegerUpDown}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="4"/>
+        </Style>
+        <Style TargetType="{x:Type e:DoubleUpDown}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="4"/>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -80,28 +89,126 @@
                     <TextBlock Text="Name:"/>
                     <TextBox Text="{Binding SelectedPokemon.Name, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Type:"/>
-                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedMove.Type}" />
-
-                    <TextBlock Text="Roll:"/>
-                    <TextBox Text="{Binding SelectedMove.Roll}"/>
-
-                    <TextBlock Text="Frequency:"/>
-                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding Frequencies}" SelectedItem="{Binding SelectedMove.Frequency}" />
-
-                    <TextBlock Text="Accuracy:"/>
-                    <TextBox Text="{Binding SelectedMove.AccuracyCheck}"/>
-
-                    <TextBlock Text="Move Stat:"/>
-                    <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding MoveStats}" SelectedItem="{Binding SelectedMove.MoveStat}" />
-
-                    <TextBlock Text="Move Range:"/>
-                    <TextBox Text="{Binding SelectedMove.MoveRange}"/>
-
-                    <TextBlock Text="Target:"/>
-                    <TextBox Text="{Binding SelectedMove.Target}"/>
+                    <TextBlock Text="Entry ID:"/>
+                    <e:IntegerUpDown Value="{Binding SelectedPokemon.EntryId}"/>
                 </UniformGrid>
 
+                <GroupBox Header="Stats">
+                    <UniformGrid
+                        Columns="4"
+                        Margin="4">
+                        <TextBlock Text="HP:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.HP}"/>
+
+                        <TextBlock Text="Attack:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Attack}"/>
+
+                        <TextBlock Text="Defense:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Defense}"/>
+
+                        <TextBlock Text="Sp. Atk:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.SpecialAttack}"/>
+
+                        <TextBlock Text="Sp. Def:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.SpecialDefense}"/>
+
+                        <TextBlock Text="Speed:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Speed}"/>
+                    </UniformGrid>
+                </GroupBox>
+
+                <GroupBox Header="Types">
+                    <UniformGrid
+                        Columns="4"
+                        Margin="4">
+                        <TextBlock Text="Type One:"/>
+                        <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedPokemon.Type}" />
+
+                        <TextBlock Text="Type Two:"/>
+                        <ComboBox DisplayMemberPath="Name" ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedPokemon.Type1}" />
+                    </UniformGrid>
+                </GroupBox>
+
+                <GroupBox Header="Metrics">
+                    <UniformGrid
+                        Columns="4"
+                        Margin="4">
+                        <TextBlock Text="Height:"/>
+                        <e:DoubleUpDown Value="{Binding SelectedPokemon.Height}"/>
+
+                        <TextBlock Text="Weight:"/>
+                        <e:DoubleUpDown Value="{Binding SelectedPokemon.Weight}"/>
+
+                        <TextBlock Text="Male %:"/>
+                        <e:DoubleUpDown
+                            Increment="0.1"
+                            Maximum="1"
+                            Minimum="0"
+                            Value="{Binding SelectedPokemon.MaleChance}"/>
+
+                        <TextBlock Text="Female %:"/>
+                        <e:DoubleUpDown
+                            Increment="0.1"
+                            Maximum="1"
+                            Minimum="0"
+                            Value="{Binding SelectedPokemon.FemaleChance}"/>
+
+                        <TextBlock Text="Average Hatch Rate:" ToolTip="In Days"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.AvgHatchRate}"/>
+                    </UniformGrid>
+                </GroupBox>
+
+                <GroupBox Header="Locales">
+                    <UniformGrid
+                        Columns="4"
+                        Margin="4">
+                        <TextBlock Text="Diets:"/>
+                        <TextBox Text="{Binding SelectedPokemon.Diets, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <TextBlock Text="Habitats:"/>
+                        <TextBox Text="{Binding SelectedPokemon.Habitats, UpdateSourceTrigger=PropertyChanged}"/>
+                    </UniformGrid>
+                </GroupBox>
+
+                <GroupBox Header="Locales">
+                    <UniformGrid
+                        Columns="4"
+                        Margin="4">
+                        <TextBlock Text="Burrow:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Burrow}"/>
+
+                        <TextBlock Text="Intelligence:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Intelligence}"/>
+
+                        <TextBlock Text="Jump:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Jump}"/>
+
+                        <TextBlock Text="Overland:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Overland}"/>
+
+                        <TextBlock Text="Power:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Power}"/>
+
+                        <TextBlock Text="Sky:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Sky}"/>
+
+                        <TextBlock Text="Surface:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Surface}"/>
+
+                        <TextBlock Text="Underwater:"/>
+                        <e:IntegerUpDown Value="{Binding SelectedPokemon.Underwater}"/>
+                    </UniformGrid>
+                </GroupBox>
+
+                <UniformGrid
+                    Columns="4"
+                    Margin="4">
+                    <TextBlock Text="Capture Rate:"/>
+                    <e:IntegerUpDown Value="{Binding SelectedPokemon.CaptureRate}"/>
+
+                    <TextBlock Text="Experience Drop:"/>
+                    <e:IntegerUpDown Value="{Binding SelectedPokemon.ExperienceDrop}"/>
+                </UniformGrid>                   
 
             </StackPanel>
         </ScrollViewer>

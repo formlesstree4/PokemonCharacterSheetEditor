@@ -1,8 +1,7 @@
 ﻿using Prism.Commands;
-using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using PtaSheet.Infrastructure.Events;
+using PtaSheet.Model;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -14,24 +13,31 @@ namespace PtaSheet.ViewModels
 
         private ICommand _addPokemonCommand;
         private InteractionRequest<IConfirmation> _confirmationRequest;
-        private Model.PtaConnection _connection;
-        private ObservableCollection<Model.Pokemon> _pokemon;
-        private Model.Pokemon _selectedPokemon;
+        private PtaConnection _connection;
+        private ObservableCollection<Pokemon> _pokemon;
+        private Pokemon _selectedPokemon;
         private ICommand _removePokemonCommand;
+        private ObservableCollection<Type> _types;
 
-
-
-        public Model.Pokemon SelectedPokemon
+        public Pokemon SelectedPokemon
         {
             get => _selectedPokemon;
             set => SetProperty(ref _selectedPokemon, value);
         }
 
-        public ObservableCollection<Model.Pokemon> Pokemon
+        public ObservableCollection<Pokemon> Pokemon
         {
             get => _pokemon;
             private set => SetProperty(ref _pokemon, value);
         }
+
+        public ObservableCollection<Type> Types
+        {
+            get => _types;
+            private set => SetProperty(ref _types, value);
+        }
+
+
 
         public ICommand AddPokemonCommand
         {
@@ -55,9 +61,9 @@ namespace PtaSheet.ViewModels
 
         public PokemonEditorViewModel()
         {
-            Pokemon = new ObservableCollection<Model.Pokemon>
+            Pokemon = new ObservableCollection<Pokemon>
             {
-                new Model.Pokemon
+                new Pokemon
                 {
                     Name = "Designer View",
                     PokemonId = 1,
@@ -67,11 +73,11 @@ namespace PtaSheet.ViewModels
             SelectedPokemon = Pokemon[0];
         }
 
-        public PokemonEditorViewModel(Model.PtaConnection connection)
+        public PokemonEditorViewModel(PtaConnection connection)
         {
             _connection = connection;
             ConfirmationRequest = new InteractionRequest<IConfirmation>();
-            Pokemon = new ObservableCollection<Model.Pokemon>(_connection.Pokemon);
+            Pokemon = new ObservableCollection<Pokemon>(_connection.Pokemon);
             AddPokemonCommand = new DelegateCommand(() =>
             {
                 var newModel = _connection.Pokemon.Create();
